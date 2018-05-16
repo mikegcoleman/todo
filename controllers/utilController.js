@@ -1,11 +1,17 @@
 const { MongoClient, ObjectId } = require('mongodb');
+const debug = require('debug')('app:utilController');
 
 exports.setupDB = async function() {
-    const url = process.env.DB_URL;
-    const dbName = 'tasks';
-    const client= await MongoClient.connect(url);
-    const db = await client.db(dbName);
-    const collection = await (db.collection('tasks'));
-    
-    return ({client : client, collection : collection});
+    try {
+        const url = process.env.DB_URL;
+        const dbName = 'tasks';
+        const client= await MongoClient.connect(url);
+        const db = await client.db(dbName);
+        const collection = await (db.collection('tasks'));
+        debug (`connect to db @ ${ url }`);
+
+        return ({client : client, collection : collection});
+    }
+
+    catch(error) { debug(error); }
 };

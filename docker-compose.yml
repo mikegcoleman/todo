@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  db:
+    image: mongo:latest
+    networks:
+      - todo_net
+    volumes:
+      - type: volume
+        source: dbdata
+        target: /data/db
+
+  front_end:
+    image: mikegcoleman/todo:latest
+    ports:
+      - "80:3000"
+    networks:
+      - todo_net
+    environment: 
+      - DB_URL=mongodb://db:27017
+      - DEBUG=app:*
+    
+networks:
+  todo_net:
+
+volumes:
+  dbdata:
