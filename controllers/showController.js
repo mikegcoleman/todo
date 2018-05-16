@@ -1,12 +1,10 @@
-const { MongoClient, ObjectId } = require('mongodb');
+const util = require('./utilController');
 
 exports.showTasks = async function(req, res) {
       try{
-        const url = 'mongodb://localhost:27017';
-        const dbName = 'tasks';
-        const client= await MongoClient.connect(url);
-        const db = client.db(dbName);
-        const taskColl = await (db.collection('tasks'));
+        const dbParams = await util.setupDB();
+        const taskColl = dbParams.collection;
+        const client = dbParams.client;
         const tasks = await taskColl.find({}).sort( { dueDate: 1 }).toArray();
         res.render('showTasks', { tasks, title: 'ToDo List', });
         client.close();

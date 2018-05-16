@@ -1,4 +1,5 @@
 const { MongoClient, ObjectId } = require('mongodb');
+const util = require('./utilController');
 
 exports.addTask = function (req, res) {
     res.render('addTask', { title: 'Adding a Task' });
@@ -7,11 +8,9 @@ exports.addTask = function (req, res) {
 exports.saveTask = async function (req, res) {
       try {
         const task = req.body;
-        const url = 'mongodb://localhost:27017';
-        const dbName = 'tasks';
-        const client= await MongoClient.connect(url);
-        const db = client.db(dbName);
-        const taskColl = await (db.collection('tasks'));
+        const dbParams = await util.setupDB();
+        const taskColl = dbParams.collection;
+        const client = dbParams.client;
         await taskColl.insertOne(task);
         const tasks = await taskColl.find({}).sort( { dueDate: 1 }).toArray();
         client.close();

@@ -36,11 +36,11 @@
                         <% break; %>
                     <% } %>                        
                 </select>
-
+                <input id="isComplete" name="isComplete" type="hidden" value="<%=task.isComplete%>">
                 <label for="duedate" class="text-primary">Due Date:</label>
                 <input type="date" class="form-control" id="duedate" name="dueDate" value="<%=task.dueDate%>">
             </div>
-                <input type="submit" class="btn btn-primary" value="Edit Task">
+                <input type="submit" class="btn btn-primary" value="Save Task">
         </form>
         </div>
     </div> <!-- container -->
