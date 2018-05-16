@@ -1,0 +1,67 @@
+<div class="card border-primary" style="width: 50%"> 
+    <div class="card-header">
+    <div class="row">
+        <div class="col-sm">
+            Due By:  
+            <%if (task.dueDate != '') { %>
+                <%=task.dueDate%> 
+            <% } else  { %>
+                Not specified
+            <% } %>
+        </div>
+        <div class="col-sm">
+            <% switch(task.priority) { 
+                case 'Normal': %>
+                <span class="badge float-right badge-warning">Priority: Normal</span>
+                <% break; %>
+                <% case 'High': %>
+                <span class="badge float-right badge-danger">Priority: High</span>
+                <% break; %>
+                <% case 'Low': %>
+                <span class="badge float-right badge-success">Priority: Low</span>
+                <% break; %>
+            <% } %>
+        </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class ="card-title"><%=task.summary%></h5>
+        <p class="card-text"><%=task.detail%></p>
+    </div>
+    <div class="card-footer">
+        <div class = "row">
+            <div class = "col-sm">
+                <% if (task.isComplete == 'false') {%>
+                    <h4><span class="badge badge-secondary">Incomplete</span></h4>
+                <%} else { %>
+                    <h4><span class="badge badge-secondary">Complete</span></h4>
+                <%}%>
+            </div>
+            <div class = "col-sm">
+                <ul class="nav justify-content-end nav-pills card-header-pills">
+                    <% if (task.isComplete == 'false') {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/task/edit/<%=task._id%>"> <i class="fas fa-edit"></i></a>
+                        </li>
+                    <%}%>
+                    <li cl
+                    <li class="nav-item">
+                        <a class="nav-link" href="/task/delete/<%=task._id%>"> <i class="fas fa-trash-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="/task/complete/<%=task._id%>">
+                            <button type="submit" class="btn btn-link">
+                                <% if (task.isComplete == 'false') {%>
+                                    <i class="fas fa-check"></i> 
+                                <%} else { %>
+                                    <i class="fas fa-redo-alt"></i>
+                                <%}%>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+    </div>
+</div>
+<p> <!-- card -->

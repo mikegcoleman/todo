@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <% include ./partials/nav %>
+      <h4>Added the task to the database</h4>
+      <p>
+      <% include ./partials/showtask %>
+    </div> <!-- container -->
+  </body>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</html>

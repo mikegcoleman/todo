@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+        <% include ./partials/nav %>
+        <div class="card" style="width: 50%">
+        <form method="post" action="/task/edit/<%=id%>" style="padding: 20px">
+            <div class="form-group">
+                <label for="summary" class="text-primary">Summary</label>
+                <input class="form-control" id="summary" name="summary" value="<%=task.summary%>"></textarea>
+
+                <label for="detail" class="text-primary">Details</label>
+                <input class="form-control" id="detail" name="detail" value="<%=task.detail%>"></textarea>
+            
+                <label for="priority" class="text-primary">Priority</label>
+                <select class="form-control" id="priority" name="priority">
+                    <% switch(task.priority) { 
+                        case 'Normal': %>
+                            <option>Low</option>
+                            <option selected>Normal</option>
+                            <option>High</option>
+                        <% break; %>
+                        <% case 'High': %>
+                            <option>Low</option>
+                            <option>Normal</option>
+                            <option selected>High</option>
+                        <% break; %>
+                        <% case 'Low': %>
+                            <option selected>Low</option>
+                            <option>Normal</option>
+                            <option>High</option>
+                        <% break; %>
+                    <% } %>                        
+                </select>
+
+                <label for="duedate" class="text-primary">Due Date:</label>
+                <input type="date" class="form-control" id="duedate" name="dueDate" value="<%=task.dueDate%>">
+            </div>
+                <input type="submit" class="btn btn-primary" value="Edit Task">
+        </form>
+        </div>
+    </div> <!-- container -->
+  </body>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</html>

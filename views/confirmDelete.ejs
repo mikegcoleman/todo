@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <% include ./partials/nav %>
+      <h4>Are you sure you want to delete this task?</h4>
+      <p>
+      <div class="card border-primary" style="width: 50%"> 
+        <div class="card-header">
+            <div class="row">
+              <div class="col-sm">
+                Due By:  
+                <%if (task.dueDate != '') { %>
+                  <%=task.dueDate%> 
+                  <% } else  { %>
+                    Not specified
+                  <% } %>
+              </div>
+            <div class="col-sm">
+                <% switch(task.priority) { 
+                    case 'Normal': %>
+                    <span class="badge float-right badge-warning">Priority: Normal</span>
+                    <% break; %>
+                    <% case 'High': %>
+                    <span class="badge float-right badge-danger">Priority: High</span>
+                    <% break; %>
+                    <% case 'Low': %>
+                    <span class="badge float-right badge-success">Priority: Low</span>
+                    <% break; %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class ="card-title"><%=task.summary%></h5>
+        <p class="card-text"><%=task.detail%></p>
+    </div>
+<div class="card-footer">
+        <div class = "row">
+            <div class = "col-sm">
+                <% if (task.isComplete == 'false') {%>
+                    <h4><span class="badge badge-secondary">Incomplete</span></h4>
+                <%} else { %>
+                    <h4><span class="badge badge-secondary">Complete</span></h4>
+                <%}%>
+            </div>
+            <div class = "col-sm">
+                <ul class="nav justify-content-end nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/task/edit/<%=task._id%>"> <i class="fas fa-edit"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/task/delete/<%=task._id%>"> <i class="fas fa-trash-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/task/complete/<%=task._id%>"><i class="far fa-check-square"></i></i></a>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+    </div>
+    <form method="post" action="/task/delete/<%=task._id%>" style="padding: 20px">
+          <input type="submit" class="btn btn-danger float-right" value="Delete Task">
+          <a class="btn btn-primary float-right" style="margin-right: 25px" href="/" role="button">Cancel</a>
+    </form>
+</div>
+       
+    </div> <!-- container -->
+  </body>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</html>
