@@ -1,6 +1,7 @@
 # Logs
 node-modules
 package-lock.json
+.eslintrc.json
 
 logs
 *.log

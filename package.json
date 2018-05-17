@@ -16,5 +16,9 @@
     "mongodb": "^3.1.0-beta4",
     "morgan": "^1.9.0",
     "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
   }
 }
