@@ -2,6 +2,7 @@
 node-modules
 package-lock.json
 .eslintrc.json
+.env
 
 logs
 *.log
