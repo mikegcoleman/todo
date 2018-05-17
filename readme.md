@@ -36,3 +36,7 @@ Currently Lightsail does not feature a Docker blueprint, but that's not really a
 1. Optionally rename the instance
 
 1. Click `Create`
+
+Lightsail will launch a new instances, copy in our shell script, and execute it on first boot. 
+
+The shell script installs `docker` and `docker-compose`. It then copies over the Docker compose file. Next it copies in the systemd unit file, and registers it. This is the most reliable way to ensure the application runs automatically after a system restart. Finally, it starts the application via Docker Compose. 
