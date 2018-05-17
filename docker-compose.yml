@@ -9,9 +9,6 @@ services:
       - type: volume
         source: dbdata
         target: /data/db
-    deploy:
-      restart_policy:
-        condition: always
 
   front_end:
     image: mikegcoleman/todo:latest
@@ -22,9 +19,6 @@ services:
     environment: 
       - DB_URL=mongodb://db:27017
       - DEBUG=app:*
-  deploy:
-      restart_policy:
-        condition: always
     
 networks:
   todo_net:
