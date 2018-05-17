@@ -1,4 +1,4 @@
-H1 A couple ways to deploy an app on [Amazon Lightsail](https://aws.amazon.com/lightsail/)
+# A couple ways to deploy an app on [Amazon Lightsail](https://aws.amazon.com/lightsail/)
 
 The application is a super simple Node / Express application that connects back to a Mongo database. 
 
