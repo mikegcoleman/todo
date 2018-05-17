@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('app');
+var debug = require('debug')('app:*');
 var http = require('http');
 require('dotenv').config();
 
@@ -17,7 +17,7 @@ require('dotenv').config();
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-debug(`app now listing on port ${ port }` );
+debug('it works');
 
 /**
  * Create HTTP server.
