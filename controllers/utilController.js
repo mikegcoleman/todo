@@ -8,7 +8,7 @@ exports.setupDB = async function() {
         const client= await MongoClient.connect(url);
         const db = await client.db(dbName);
         const collection = await (db.collection('tasks'));
-        debug (`connect to db @ ${ url }`);
+        console.log (`connect to db @ ${ url }`);
 
         return ({client : client, collection : collection});
     }
