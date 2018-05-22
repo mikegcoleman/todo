@@ -188,11 +188,25 @@ Now that MongoDB is configured, we can actually install the application and test
 
    You should see a message the the application is running on port 80
 
-   **Note**: The MEAN instance requires elevated priviliges to start a process on port 80, hence the need for `sudo`
+1. In your web browser navigate to your instance IP to see the running application. 
 
-1. In your web browser navigate to your instance IP 
+1. To ensure everything is working as expected click `Add task` in the top menu. Fill in the details and click `Add Task`.
 
-   The application shoud
+1. Go back to Rockmongo (if you've closed the SSH tunnel you'll need to reopen it) at: http://127.0.0.1:8888/rockmongo
+
+1. Click on `tasks (1)` (the number may not be `1` if you added more than one task).
+
+1. Click on `tasks (1)` under `keyword`
+
+   You should should see the taks you added in the right hand pane. 
+
+#### Cleanup
+
+1. To close the SSH tunnel press `ctrl-c` in that terminal session.
+
+1. To delete your Lightsail instance navigate to the Lightsail console, click the 3 dot menu in the upper right of the instance card, and click `Delete`.
+
+   Confirm you wish to delete the instance. 
 
 
 
