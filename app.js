@@ -25,7 +25,7 @@ app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redi
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 app.use('/css', express.static(__dirname + '/public/stylesheets'));
 app.use('/webfonts', express.static(__dirname + '/public/fonts/webfonts/')); 
-debug('hello');
+
 app.get('/', todoRouter);
 app.post('/task/complete/:id', todoRouter);
 app.get('/task/edit/:id', todoRouter);
