@@ -7,10 +7,10 @@ Deploy the application with:
 * [Amazon Lightsail's MEAN stack blueprint](#lightsails-mean-stack-blueprint)
 * [Docker containers with Docker Compose](#docker-containers-with-docker-compose)
 
+## Lightsail's MEAN stack blueprint
 
 **Note**: This example assumes you're familiar with SSH and how to edit files in a Linux operating system. If you're not check out [this VIM tutorial](http://www.openvim.com/) and this aritcle [using SSH to connec to Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html).
 
-## Lightsail's MEAN stack blueprint
 The Lightsail MEAN stack blueprint includes components such as Node, Express, Apache, and Rockmongo. In order to deploy an application there are a few things that should be configured. 
 
 **Note** : This walkthrough assumes you are familiar with both `ssh` and how to edit files in a Linux environment**
