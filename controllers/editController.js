@@ -1,7 +1,7 @@
 const util = require('./utilController');
 const { ObjectId } = require('mongodb');
 
-exports.editTask = async function (req, res) {
+exports.editTask = async (req, res) => {
     try {
             const { id } = req.params;
             const dbParams = await util.setupDB();
@@ -16,7 +16,7 @@ exports.editTask = async function (req, res) {
     }
 };
 
-exports.commitEdit = async function (req,res) {
+exports.commitEdit = async (req,res) => {
     try {
         const { id } = req.params;
         const task = req.body;
@@ -26,7 +26,7 @@ exports.commitEdit = async function (req,res) {
         await taskColl.findOneAndUpdate({ _id: new ObjectId(id) }, task);
         const tasks = await taskColl.find({}).sort( { dueDate: 1 }).toArray();
         client.close();
-        res.render('showTasks', {tasks, title: 'ToDo List'}); 
+        res.redirect('/'); 
       }
       catch(err) {
         console.log(err);

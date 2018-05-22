@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb');
 const util = require('./utilController');
 
-exports.deleteTask = async function(req, res){
+exports.deleteTask = async (req, res) => {
       try {
         const { id } = req.params;
         const dbParams = await util.setupDB();
@@ -16,7 +16,7 @@ exports.deleteTask = async function(req, res){
       }
 }
 
-exports.confirmDelete = async function(req, res) {
+exports.confirmDelete = async (req, res) => {
       try {
         console.log('confirming delete');
         const { id } = req.params;
@@ -26,7 +26,7 @@ exports.confirmDelete = async function(req, res) {
         const task = await taskColl.deleteOne({ _id: new ObjectId(id)} );
         const tasks = await taskColl.find({}).sort( { dueDate: 1 }).toArray();
         client.close();
-        res.render('showTasks', {tasks, title: 'ToDo List'}); 
+        res.redirect('/'); 
       }
       catch(err) {
         console.log(err);

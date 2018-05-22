@@ -1,7 +1,7 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const util = require('./utilController');
 
-exports.commitComplete = async function (req, res) {
+exports.commitComplete = async (req, res) => {
     try {
         const { id } = req.params;
         const dbParams = await util.setupDB();
@@ -12,7 +12,7 @@ exports.commitComplete = async function (req, res) {
         await taskColl.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isComplete: status } });
         const tasks = await taskColl.find({}).sort( { dueDate: 1 }).toArray();
         client.close();
-        res.render('showTasks', { tasks, title: 'ToDo List', });
+        res.redirect('/');
     }
     catch (err) {
         console.log(err);
