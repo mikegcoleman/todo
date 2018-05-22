@@ -1,4 +1,4 @@
-## A couple ways to deploy an app on [Amazon Lightsail](https://aws.amazon.com/lightsail/)
+# A couple ways to deploy an app on [Amazon Lightsail](https://aws.amazon.com/lightsail/)
 
 The application is a super simple Node / Express application that connects back to a Mongo database. 
 
@@ -10,7 +10,7 @@ Deploy the application with:
 
 **Note**: This example assumes you're familiar with SSH and how to edit files in a Linux operating system. If you're not check out [this VIM tutorial](http://www.openvim.com/) and this aritcle [using SSH to connec to Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html).
 
-### Lightsail's MEAN stack blueprint
+## Lightsail's MEAN stack blueprint
 The Lightsail MEAN stack blueprint includes components such as Node, Express, Apache, and Rockmongo. In order to deploy an application there are a few things that should be configured. 
 
 **Note** : This walkthrough assumes you are familiar with both `ssh` and how to edit files in a Linux environment**
@@ -209,7 +209,7 @@ Now that MongoDB is configured, we can actually install the application and test
    Confirm you wish to delete the instance. 
 
 
-### Docker containers with Docker Compose
+## Docker containers with Docker Compose
 Currently Lightsail does not feature a Docker blueprint, but that's not really an issue. We can use the optional launch script to install Docker and make other necessary changes to the system. In the case of this tutorial you'll create an instance with a launch script that installs Docker and Docker Compose. It will also copy in the Docker Compose file that defines our application, and it will modify systemd so that on subsequent reboots our application automatically restarts. 
 
 1. From the Lightsail console click `Create Instance`.
@@ -231,7 +231,7 @@ Currently Lightsail does not feature a Docker blueprint, but that's not really a
    ```
 
    **Note**: To see contents of that script, please visit the github repository
-   
+
 1. Choose the appropriate instance size. In this case, there's no reason to do anything more than the $5 size. 
 
 1. Optionally rename the instance.
