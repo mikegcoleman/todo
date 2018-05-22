@@ -209,10 +209,6 @@ Now that MongoDB is configured, we can actually install the application and test
    Confirm you wish to delete the instance. 
 
 
-
-
-
-
 ### Docker containers with Docker Compose
 Currently Lightsail does not feature a Docker blueprint, but that's not really an issue. We can use the optional launch script to take care of what needs to be done. 
 
@@ -244,4 +240,21 @@ Currently Lightsail does not feature a Docker blueprint, but that's not really a
    The shell script installs `docker` and `docker-compose`. It then copies over the Docker compose file. Next it copies in the systemd unit file, and registers it. This is the most reliable way to ensure the application runs automatically after a system restart. Finally, it starts the application via Docker Compose. 
 
 1. Once the instance is up and running you can navigate to its IP address to see the running site. 
+
+1. To ensure everything is working as expected click `Add task` in the top menu. Fill in the details and click `Add Task`.
+
+   You should now have that task listed. 
+
+1. Docker containers are ephemeral by default (meaning when a container reboots any changes made to the container are removed), but the Docker Compose file specified a persistent volume to use for the database data. 
+
+   To make sure this is working, restart your Lightsail instance by navigatimg to the Lightsail console, clicking the 3 dot menu in the upper right of the instance card, and selecting `Restart`.
+
+   **Note**: The instance will say it's running very quickly, however it will takea  minute or two before everything is booted up and running. 
+
+1. Reload the application website in your browser and ensure your task is still listed to verify that the Docker volumes are persisting your data. 
+
+#### Cleanup
+1. To delete your Lightsail instance navigate to the Lightsail console, click the 3 dot menu in the upper right of the instance card, and click `Delete`.
+
+   Confirm you wish to delete the instance. 
 
