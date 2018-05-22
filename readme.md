@@ -13,7 +13,7 @@ Deploy the application with:
 ### Lightsail's MEAN stack blueprint
 The Lightsail MEAN stack blueprint includes components such as Node, Express, Apache, and Rockmongo. In order to deploy an application there are a few things that should be configured. 
 
-** Note: This walkthrough assumes you are familiar with both `ssh` and how to edit files in a Linux environment**
+**Note** : This walkthrough assumes you are familiar with both `ssh` and how to edit files in a Linux environment**
 
 1. From the AWS console click `Lighsail` under `Compute`.
 
@@ -210,7 +210,7 @@ Now that MongoDB is configured, we can actually install the application and test
 
 
 ### Docker containers with Docker Compose
-Currently Lightsail does not feature a Docker blueprint, but that's not really an issue. We can use the optional launch script to take care of what needs to be done. 
+Currently Lightsail does not feature a Docker blueprint, but that's not really an issue. We can use the optional launch script to install Docker and make other necessary changes to the system. In the case of this tutorial you'll create an instance with a launch script that installs Docker and Docker Compose. It will also copy in the Docker Compose file that defines our application, and it will modify systemd so that on subsequent reboots our application automatically restarts. 
 
 1. From the Lightsail console click `Create Instance`.
 
@@ -229,6 +229,9 @@ Currently Lightsail does not feature a Docker blueprint, but that's not really a
 
    ./lightsail-compose.sh
    ```
+
+   **Note**: To see contents of that script, please visit the github repository
+   
 1. Choose the appropriate instance size. In this case, there's no reason to do anything more than the $5 size. 
 
 1. Optionally rename the instance.
