@@ -9,11 +9,19 @@
   <body>
     <div class="container">
       <% include ./partials/nav %>
-      <%  let task = {}; 
-         for(let i = 0; i < tasks.length; i++) { 
-            task = tasks[i] %>
-            <% include ./partials/showtask %>
-       <% } %> 
+      <%  let task = {}; %>
+
+         <% if (tasks.length == 0) { %>
+         
+         <h4> No tasks to display. Add one above.</h4>
+
+         <%} else {%>
+
+          <% for(let i = 0; i < tasks.length; i++) { 
+              task = tasks[i] %>
+              <% include ./partials/showtask %>
+          <% } %> 
+        <% } %>
     </div> <!-- container -->
   </body>
   <script src="/js/jquery.min.js"></script>
