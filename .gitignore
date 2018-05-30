@@ -3,6 +3,7 @@ node-modules
 package-lock.json
 .eslintrc.json
 .env
+cheatsheet.txt
 
 logs
 *.log
