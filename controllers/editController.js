@@ -19,7 +19,7 @@ exports.editTask = async (req, res) => {
 exports.commitEdit = async (req, res) => {
   try {
     const { id } = req.params;
-    const task = req.body;
+    const task = { $set: req.body };
     const dbParams = await util.setupDB();
     await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
     dbParams.client.close();
